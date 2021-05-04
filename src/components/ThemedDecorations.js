@@ -1,19 +1,19 @@
-export default class Invitation extends React.Component {
+import React from 'react';
+
+class ThemedDecorations extends React.Component {
   
   render() {
-    const invDefault = <h1>'You\'ve been invited!'</h1>;
-    const invCust = React.Children.map(this.props.children, child => {
-      rturn React.cloneElement(child, {
-        invite: child.props.message === invDefault
-      });
-    });
+    const invCust = React.Children.map(this.props.children, child => React.cloneElement(child, {
+        className: child.props.theme,
+      }));
     
     return (
-      <div className="invitation">
+      <div>
         {invCust}
       </div>
     );
-      
   }
 }
+
+export default ThemedDecorations;
 
