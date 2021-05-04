@@ -4,7 +4,7 @@ class ThemedDecorations extends React.Component {
   
   render() {
     const invCust = React.Children.map(this.props.children, child => React.cloneElement(child, {
-        className: child.props.theme,
+        className: this.props.theme,
       }));
     
     return (
